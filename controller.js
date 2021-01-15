@@ -18,6 +18,7 @@ exports.tampilsemuamahasiswa=function(req,res){
     });
 }
 
+
 //menampilkan semua data mahasiswa berdasarkan id
 exports.tampilberdasarkanid=function(req,res){
     let id=req.params.id;
@@ -31,6 +32,7 @@ exports.tampilberdasarkanid=function(req,res){
         }
     );
 };
+
 
 //menambahkan data mahasiswa
 exports.tambahMahasiswa=function(req,res){
@@ -48,6 +50,7 @@ exports.tambahMahasiswa=function(req,res){
     });
 };
 
+
 //mengubah data berdasarkan id
 exports.ubahMahasiswa=function(req,res){
     var id=req.body.id_mahasiswa;
@@ -64,6 +67,7 @@ exports.ubahMahasiswa=function(req,res){
     });
 };
 
+
 //menghapus data berdasarkan id
 exports.hapusMahasiswa=function(req,res){
     var id=req.body.id_mahasiswa;
@@ -76,3 +80,14 @@ exports.hapusMahasiswa=function(req,res){
         }
     });
 };
+
+//menampilkan matakuliah group
+exports.tampilgroupmatakuliah=function(req,res){
+    connection.query('SELECT mahasiswa.id_mahasiswa,mahasiswa.nim,mahasiswa.nama,mahasiswa.jurusan,matakuliah.matakuliah,matakuliah.sks FROM krs JOIN matakuliah join mahasiswa where krs.id_matakuliah=matakuliah.id_matakuliah AND krs.id_mahasiswa=mahasiswa.id_mahasiswa ORDER BY mahasiswa.id_mahasiswa',function(error,rows,fields){
+        if(error){
+            console.log(error);
+        }else{
+            response.oknested(rows,res);
+        }
+    })
+}
