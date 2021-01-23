@@ -1,3 +1,3 @@
 module.exports={
-    'secret':'rahasisaku',
+    'secret':'rahasiaku',
 }

@@ -22,4 +22,7 @@ module.exports=function(app){
 
     app.route('/tampilmatakuliah')
     .get(jsonku.tampilgroupmatakuliah);
+
+    // var regis=require('./middleware/index');
+    // app.route('/register1').post()
 }
